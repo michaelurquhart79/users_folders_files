@@ -47,8 +47,17 @@ public class FileserviceApplicationTests {
 
 	@Test
 	public void createFile(){
-		File file1 = new File("JavaStuff", "class",1200);
+		User user = new User("Kev B");
+		userRepository.save(user);
+
+		Folder folder = new Folder("NSFW", user);
+		folderRepository.save(folder);
+
+		File file1 = new File("Ladies", "jpg",1200, folder);
 		fileRepository.save(file1);
+
+		File file2 = new File("Men", "jpg", 1500, folder);
+		fileRepository.save(file2);
 	}
 
 }
