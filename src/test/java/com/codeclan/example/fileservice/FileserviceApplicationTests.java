@@ -1,7 +1,9 @@
 package com.codeclan.example.fileservice;
 
+import com.codeclan.example.fileservice.models.File;
 import com.codeclan.example.fileservice.models.Folder;
 import com.codeclan.example.fileservice.models.User;
+import com.codeclan.example.fileservice.repositories.FileRepository;
 import com.codeclan.example.fileservice.repositories.FolderRepository;
 import com.codeclan.example.fileservice.repositories.UserRepository;
 import org.junit.Test;
@@ -19,6 +21,9 @@ public class FileserviceApplicationTests {
 
 	@Autowired
 	FolderRepository folderRepository;
+
+	@Autowired
+	FileRepository fileRepository;
 
 	@Test
 	public void contextLoads() {
@@ -38,6 +43,12 @@ public class FileserviceApplicationTests {
 
 		Folder folder1 = new Folder("School Work", user2);
 		folderRepository.save(folder1);
+	}
+
+	@Test
+	public void createFile(){
+		File file1 = new File("JavaStuff", "class",1200);
+		fileRepository.save(file1);
 	}
 
 }
