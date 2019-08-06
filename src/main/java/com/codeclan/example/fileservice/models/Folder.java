@@ -22,7 +22,7 @@ public class Folder {
     private Long id;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "folder")
+    @OneToMany(mappedBy = "folder", cascade = CascadeType.REMOVE)
     private List<File> files;
 
     public Folder(String title, User user) {

@@ -18,7 +18,7 @@ public class User {
     private Long id;
 
     @JsonIgnore
-    @OneToMany(mappedBy="user")
+    @OneToMany(mappedBy="user", cascade = CascadeType.REMOVE)
     private List<Folder>folders;
 
     public User(String name) {
